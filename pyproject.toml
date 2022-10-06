@@ -1,0 +1,44 @@
+[project]
+name = "pdm-invoke"
+version = "0.0.4"
+description = "pdm shortcuts for invoke projects"
+authors = [
+    {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
+]
+dependencies = []
+requires-python = ">=3.7"
+license = {text = "MIT"}
+readme = "README.md"
+
+[project.urls]
+homepage = "https://github.com/sicksid/pdm-invoke"
+
+[project.optional-dependencies]
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "yapf>=0.32.0",
+    "toml>=0.10.2",
+    "invoke>=2.7.1",
+]
+
+[tool.pdm.scripts]
+_.env_file = ".env"
+format = "yapf -rpi -vv ."
+check_format = "yapf -rpd ."
+
+[[tool.pdm.autoexport]]
+filename = "requirements.txt"
+without-hashes = true
+
+[[tool.pdm.autoexport]]
+filename = "setup.py"
+format = "setuppy"
+
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+[project.entry-points.pdm]
+pdm_invoke = "pdm_invoke.main:reg_commands"
