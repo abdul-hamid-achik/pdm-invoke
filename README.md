@@ -14,7 +14,7 @@ Tested with PDM 2.1.X
 
 ## Usage
 
-### fab
+### inv
 
 Example: `pdm inv compress --output dist.zip`
 
@@ -23,3 +23,7 @@ Example: `pdm inv compress --output dist.zip`
 https://github.com/neutron-sync/pdm-django
 
 https://github.com/pdm-project/pdm
+
+## for fabric
+
+https://github.com/sicksid/pdm-fabric
