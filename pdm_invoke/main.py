@@ -1,9 +1,6 @@
 import argparse
-import subprocess
 import sys
 
-from pdm.cli.utils import PdmFormatter
-from pdm.cli.commands.base import BaseCommand
 from pdm.cli.commands.run import Command as RunCommand
 from pdm.cli.commands.run import TaskRunner
 from pdm.cli.hooks import HookManager
@@ -11,7 +8,7 @@ from pdm.cli.options import skip_option
 from pdm.cli.utils import check_project_file
 
 
-class InvokeCommand(RunCommand):
+class Command(RunCommand):
   OPTIONS = []
   COMMAND_PREFIX = ['inv']
 
@@ -38,5 +35,14 @@ class InvokeCommand(RunCommand):
     sys.exit(exit_code)
 
 
+class InvCommand(Command):
+  COMMAND_PREFIX = ['inv']
+
+
+class InvokeCommand(Command):
+  COMMAND_PREFIX = ['invoke']
+
+
 def reg_commands(core):
-  core.register_command(InvokeCommand, "inv")
+  core.register_command(InvCommand, "inv")
+  core.register_command(InvokeCommand, "invoke")

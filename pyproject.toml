@@ -1,6 +1,6 @@
 [project]
 name = "pdm-invoke"
-version = "0.0.1"
+version = "0.0.2"
 description = "pdm shortcuts for invoke projects"
 authors = [
     {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
