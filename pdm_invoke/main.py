@@ -25,10 +25,9 @@ class Command(RunCommand):
     options.command = self.COMMAND_PREFIX[0]
 
     check_project_file(project)
+git ad
     hooks = HookManager(project, options.skip)
     runner = TaskRunner(project, hooks=hooks)
-    sys.exit(runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args))
-
     hooks.try_emit("pre_run", script=options.command, args=options.args)
     exit_code = runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args)
     hooks.try_emit("post_run", script=options.command, args=options.args)
