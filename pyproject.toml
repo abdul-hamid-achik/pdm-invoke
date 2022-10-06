@@ -1,11 +1,12 @@
 [project]
 name = "pdm-invoke"
-version = "0.0.4"
+version = "0.0.1"
 description = "pdm shortcuts for invoke projects"
 authors = [
     {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
 ]
-dependencies = []
+dependencies = [
+]
 requires-python = ">=3.7"
 license = {text = "MIT"}
 readme = "README.md"
@@ -20,7 +21,7 @@ homepage = "https://github.com/sicksid/pdm-invoke"
 dev = [
     "yapf>=0.32.0",
     "toml>=0.10.2",
-    "invoke>=2.7.1",
+    "invoke>=1.7.3",
 ]
 
 [tool.pdm.scripts]

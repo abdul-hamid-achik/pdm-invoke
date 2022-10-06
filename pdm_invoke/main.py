@@ -11,9 +11,9 @@ from pdm.cli.options import skip_option
 from pdm.cli.utils import check_project_file
 
 
-class invokeCommand(RunCommand):
+class InvokeCommand(RunCommand):
   OPTIONS = []
-  COMMAND_PREFIX = ['fab']
+  COMMAND_PREFIX = ['inv']
 
   def add_arguments(self, parser):
     skip_option.add_to_parser(parser)
@@ -30,9 +30,6 @@ class invokeCommand(RunCommand):
     check_project_file(project)
     hooks = HookManager(project, options.skip)
     runner = TaskRunner(project, hooks=hooks)
-    if options.site_packages:
-      runner.global_options.update({"site_packages": options.site_packages})
-
     sys.exit(runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args))
 
     hooks.try_emit("pre_run", script=options.command, args=options.args)
@@ -42,4 +39,4 @@ class invokeCommand(RunCommand):
 
 
 def reg_commands(core):
-  core.register_command(invokeCommand, "fab")
+  core.register_command(InvokeCommand, "inv")
