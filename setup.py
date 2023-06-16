@@ -11,7 +11,7 @@ ENTRY_POINTS = {
 
 setup_kwargs = {
   'name': 'pdm-invoke',
-  'version': '0.0.4',
+  'version': '0.0.5',
   'description': 'pdm shortcuts for invoke projects',
   'long_description': long_description,
   'license': 'MIT',
